@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SkyrimFullStackCrud.Shared.ArmorClass;
-using SkyrimFullStackCrud.Shared.OutfitObject;
 
 namespace SkyrimFullStackCrud.Shared
 {
@@ -28,7 +27,8 @@ namespace SkyrimFullStackCrud.Shared
         public string firstName { get; set; } = String.Empty;
         public string lastName { get; set; } = String.Empty;
         public Race race { get; set; } = Race.Nord;
-        public ArmorSet? armor { get; set; } = null;
+        public ArmorSet? outfit { get; set; }
+        public Weapon? weapon { get; set; }
         public int level { get; set; } = 0;
         public int currXpPts { get; set; } = 0;
         static public int XpCap { get; set; } = 100;

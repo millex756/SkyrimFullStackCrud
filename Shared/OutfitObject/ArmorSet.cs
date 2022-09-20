@@ -1,5 +1,5 @@
 ﻿using SkyrimFullStackCrud.Shared.ArmorClass.WearableObjects;
-using SkyrimFullStackCrud.Shared.OutfitObject;
+using SkyrimFullStackCrud.Shared.OutfitObject.WearableObjects;
 
 namespace SkyrimFullStackCrud.Shared.ArmorClass
 {
@@ -11,6 +11,6 @@ namespace SkyrimFullStackCrud.Shared.ArmorClass
         public Pants? pants { get; set; } = null;
         public Boots? boots { get; set; } = null;
 
-        public Weapon? weapon { get; set; } = null;
+        public Shield? shield { get; set; } = null;
     }
 }
