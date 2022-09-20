@@ -1,8 +1,37 @@
-﻿@page "/saveData"
+﻿@page "/players"
+@inject ISavedDataService SavedDataService
 
 <PageTitle>Saved Data</PageTitle>
 <h3>Players</h3>
 
-@code {
+<table class = "table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Level</th>
+            <th>Race</th>
+            <th>Current XP</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var player in SavedDataService.players)
+        {
+            <tr>
+                <td>@player.firstName</td>
+                <td>@player.lastName</td>
+                <td>@player.level</td>
+                <td>@player.race</td>
+                <td>@player.GetXpProgress()</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
+@code 
+{
+    protected override async Task OnInitializedAsync()
+    {
+        await SavedDataService.GetPlayers();
+    }
 }

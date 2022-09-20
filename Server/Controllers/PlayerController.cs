@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SkyrimFullStackCrud.Client.Pages;
 using SkyrimFullStackCrud.Shared;
 using SkyrimFullStackCrud.Shared.ArmorClass;
 using SkyrimFullStackCrud.Shared.ArmorClass.WearableObjects;
@@ -25,40 +26,21 @@ namespace SkyrimFullStackCrud.Server.Controllers
 
         public static ArmorSet ironOutfit = new(helmet, armor, gauntlets, pants, boots, shield);
 
-        public static List<Player> players = new List<Player>
-        {
-            new Player
-            {
-                id = 1,
-                firstName = "Alex",
-                lastName="Miller",
-                race = Shared.Race.Imperial,
-                outfit = ironOutfit,
-                weapon = iAxe,
-                level = 26,
-                currXpPts = 23
-            },
-            new Player
-            {
-                id = 1,
-                firstName = "Sterben",
-                lastName="Jeroot",
-                race = Shared.Race.Bosmer,
-                outfit = ironOutfit,
-                weapon = iSword,
-                level = 34,
-                currXpPts = 74
-            }
-        };
+
+        public Player p1 = new Player(1, "Alex","Miller", Shared.Race.Imperial);
+        public Player p2 = new Player (2,"Sterben","Jeroot",Shared.Race.Bosmer);
+        public List<Player> players = new List<Player>();
 
         [HttpGet]
-        public async Task<ActionResult<List<Player>>>GetAllSavedData()
+        public async Task<ActionResult<List<Player>>>GetPlayers()
         {
+            players.Add(p1);
+            players.Add(p2);
             return Ok(players);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Player>> GetSavedData(int id)
+        public async Task<ActionResult<Player>> GetPlayer(int id)
         {
             var saveData = players.FirstOrDefault(p => p.id == id);
             if (saveData == null)
