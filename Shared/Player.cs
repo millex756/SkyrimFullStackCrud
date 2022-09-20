@@ -7,7 +7,7 @@ using SkyrimFullStackCrud.Shared.ArmorClass;
 
 namespace SkyrimFullStackCrud.Shared
 {
-    enum Race
+    public enum Race
     {
         Altmer,
         Argonian,
@@ -21,9 +21,9 @@ namespace SkyrimFullStackCrud.Shared
         Redguard
     }
 
-    internal class Player
+    public class Player
     {
-        public int Id { get; set; }
+        public int id { get; set; }
         public string firstName { get; set; } = String.Empty;
         public string lastName { get; set; } = String.Empty;
         public Race race { get; set; } = Race.Nord;

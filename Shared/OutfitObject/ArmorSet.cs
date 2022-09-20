@@ -12,5 +12,15 @@ namespace SkyrimFullStackCrud.Shared.ArmorClass
         public Boots? boots { get; set; } = null;
 
         public Shield? shield { get; set; } = null;
+
+        public ArmorSet (Helmet? helmet, Armor? armor, Gauntlet? gauntlet, Pants? pants, Boots? boots, Shield? shield)
+        {
+            this.helmet = helmet;
+            this.armor = armor;
+            this.gauntlet = gauntlet;
+            this.pants = pants;
+            this.boots = boots;
+            this.shield = shield;
+        }
     }
 }
